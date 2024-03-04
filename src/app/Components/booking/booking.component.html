@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS */
+        
+        body {
+            background-image: url('../../assets/BusImage4.jpeg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* padding-top: 20px; Adjust the top padding to accommodate the navbar */
+        }
+        
+        .booking-form {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white background */
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            /* Center the form horizontally */
+        }
+        
+        .navbar {
+            background-color: #35156b;
+            /* Bootstrap dark background color */
+        }
+        
+        .navbar-brand {
+            color: #ffffff;
+            /* White color for the text */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-brand {
+                left: 0;
+                /* Center the text for small screens */
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <a class="navbar-brand" href="#">🚍Fastx🚍</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-dark" (click)="back()">Back</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Booking Form -->
+    <div class="booking-form">
+        <h2 class="text-center mb-4">Fastx Booking Details</h2>
+        <div class="booking-form">
+            <h2 class="text-center mb-4">Booking Details of user</h2>
+            <form (ngSubmit)="bookTicket()" #bookingForm="ngForm">
+                <div class="form-group">
+                    <label for="bookingDate">Travel Date</label>
+                    <input type="date" class="form-control" id="bookingDate" name="bookingDate" [(ngModel)]="bookingDate" required #bookingDateInput="ngModel">
+                    <div *ngIf="bookingDateInput.invalid && (bookingDateInput.dirty || bookingDateInput.touched)" class="text-danger">
+                        Please select a valid travel date.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required email #emailInput="ngModel">
+                    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                        Please enter a valid email address.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Total Amount</label>
+                    <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="amount" required #amountInput="ngModel">
+                    <div *ngIf="amountInput.invalid && (amountInput.dirty || amountInput.touched)" class="text-danger">
+                        Please enter the total amount.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="seatNo">Seat No</label>
+                    <input type="text" class="form-control" id="seatNo" name="seatNo" [(ngModel)]="selectedSeats" required #seatNoInput="ngModel">
+                    <div *ngIf="seatNoInput.invalid && (seatNoInput.dirty || seatNoInput.touched)" class="text-danger">
+                        Please enter the seat number.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalCustomer">Number of Passengers</label>
+                    <input type="number" class="form-control" id="totalCustomer" name="totalCustomer" [(ngModel)]="totalCustomer" required #totalCustomerInput="ngModel">
+                    <div *ngIf="totalCustomerInput.invalid && (totalCustomerInput.dirty || totalCustomerInput.touched)" class="text-danger">
+                        Please enter the number of passengers.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block" [disabled]="bookingForm.invalid">Book a Ticket</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

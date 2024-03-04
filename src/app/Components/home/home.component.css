@@ -1,0 +1,35 @@
+.background-image-container {
+  position: relative; /* Set the container position to relative */
+  width: 100%;
+  height: 92vh; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.form-container {
+  position: absolute; /* Position the form container over the image */
+  top: 50%; /* Adjust to vertically center */
+  left: 50%; /* Adjust to horizontally center */
+  transform: translate(-50%, -50%);
+  width: 80%; /* Adjust as needed */
+  max-width: 400px; /* Adjust as needed */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Background color for better readability */
+  border-radius: 8px;
+}
+.copyright {
+  position: absolute;
+  bottom: 20px; /* Adjust this value for vertical position */
+  width: 100%;
+  text-align: center;
+  color: white; /* Set the color of the text */
+  font-size: 14px; /* Adjust the font size as needed */
+}

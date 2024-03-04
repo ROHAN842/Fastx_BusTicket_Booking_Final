@@ -1,0 +1,57 @@
+/* Add this to your existing CSS or create a new file called styles.css */
+
+/* Booking Information Styles */
+.booking-ticket {
+  background-color: #dfe6e9; /* Light blue grey */
+  padding: 20px;
+}
+
+.booking-ticket .container {
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-ticket h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2d3436; /* Dark grey */
+}
+
+.booking-ticket .form-group {
+  margin-bottom: 20px;
+}
+
+.booking-ticket label {
+  color: #2d3436; /* Dark grey */
+}
+
+.booking-ticket button {
+  display: block;
+  margin: 0 auto;
+  background-color: #0984e3; /* Light blue */
+  border: none;
+  padding: 10px 20px;
+  color: #fff; /* White text */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-ticket button:hover {
+  background-color: #74b9ff; /* Lighter blue */
+}
+
+/* Passenger List Styles */
+.passenger-list {
+  background-color: #bdc3c7; /* Light grey */
+  padding: 20px;
+}
+
+.passenger-list .container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

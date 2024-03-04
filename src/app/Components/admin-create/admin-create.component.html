@@ -1,0 +1,31 @@
+
+<form  #myform="ngForm"  method="post"  class="container col-md-4" (ngSubmit)="createAdmin(myform.value)">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="firstName" class="form-control" required [(ngModel)]="admin.firstName">
+    </div>
+    
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="lastName" class="form-control" required [(ngModel)]="admin.lastName">
+    </div>
+  
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" required [(ngModel)]="admin.email">
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" class="form-control" required [(ngModel)]="admin.password">
+    </div>
+  
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" [(ngModel)]="admin.phoneNumber">
+    </div>
+  
+  
+    <button type="submit" class="btn btn-primary">Create Admin</button>
+  </form>
+  

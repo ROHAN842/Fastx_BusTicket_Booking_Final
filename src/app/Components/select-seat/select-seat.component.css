@@ -1,0 +1,91 @@
+.body {
+  background: linear-gradient(to bottom, #dddddd, #333333); 
+      
+  background-size: cover;
+  background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+  } 
+  
+  #seat-container {
+    background-color: rgb(236, 236, 229);
+    color: #000;
+    max-width: 1000px; 
+    height: auto; 
+    text-align: center;
+    border-radius: 47px;
+    padding: 20px; 
+    box-shadow: 0px 0px 10px 0px #000000; 
+  }
+  .button {
+    position: absolute; 
+    bottom: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: #000; 
+    color: #ffffff; 
+    padding: 15px 30px; 
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+  }
+  .backbutton{
+    position: absolute; 
+    bottom: 20px; 
+    left: 8%; 
+    transform: translateX(-50%); 
+    background-color: #000; 
+    color: #ffffff; 
+    padding: 15px 30px; 
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  td {
+    height: 100px; 
+    width: 100px; 
+    margin-right: 20px;
+    border-radius: 12px;
+    transition: 0.12s;
+    cursor: pointer;
+  }
+  
+  td.occupied {
+    background-color: rgb(137, 138, 139);
+    cursor: not-allowed;
+  }
+  
+  .occupied input{
+    cursor: not-allowed;
+  }
+  
+  td:hover {
+    transform: scale(1.1);
+  }
+  
+  td.selected {
+    background-color: #86d38a;
+  }
+  
+  button:disabled {
+    border: 1px solid #b6b0b0;
+    background-color: #cccccc;
+    color: #8d8c8c;
+  }
+  
+  input {
+    height: 60px;
+    width: 70px;
+  }
+  

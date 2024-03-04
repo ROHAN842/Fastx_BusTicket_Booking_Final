@@ -1,0 +1,26 @@
+<div class="background-image-container">
+  <img src="../../assets/user sign up.jpg" class="background-image">
+  <div class="form-container">
+<form #operatorForm="ngForm" method="post" class="container col-md-4" (ngSubmit)="createOperator(operatorForm.value)">
+    <div class="form-group">
+      <label for="operatorName">Operator Name</label>
+      <input type="text" id="operatorName" name="operatorName" class="form-control" required [(ngModel)]="operator.operatorName">
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" class="form-control" required [(ngModel)]="operator.password">
+    </div>
+  
+    <div class="form-group">
+      <label for="contactPhone">Contact Phone</label>
+      <input type="tel" id="contactPhone" name="contactPhone" class="form-control" [(ngModel)]="operator.contactPhone" pattern="^[0-9]{10}">
+    </div>
+  
+    <!-- You can adjust the form fields based on the Operator entity's attributes -->
+  
+    <button type="submit" class="btn btn-primary">Sign Up as Operator</button>
+  </form>
+  </div>
+  </div>
+  

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASTX</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+        /* Custom CSS */
+        
+        .navbar {
+            position: relative;
+            background-color: #35156b;
+            /* Change to the desired color */
+            color: white;
+        }
+        
+        #butt {
+            background-color: #35156b;
+        }
+        
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn-back {
+            margin-right: 20px;
+        }
+        
+        .btn-signout {
+            margin-left: 20px;
+        }
+        
+        .welcome-message {
+            position: absolute;
+            left: 70px;
+            /* Adjust the left position as needed */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* Background image styles */
+        
+        body {
+            background-image: url('../../assets/BusImage4.jpeg');
+            /* Adjust the path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark">
+        <button type="button" class="btn btn-back left-corner" (click)="goBack()">Back</button>
+        <h1 class="navbar-brand">🚍Fastx🚍</h1>
+        <!-- <span class="welcome-message">Welcome, {{ loggedInUsername }}</span> Move the welcome message here -->
+        <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Sign Out</button>
+    </nav>
+    <!-- Your content here -->
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <div class="card-body">
+                        <h5 class="card-title">Display All Admins</h5>
+                        <p class="card-text">Click the button to display all admins.</p>
+                        <button id="butt" type="button" class="btn btn-secondary" (click)="getalladmins()">Display All Admins</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <div class="card-body">
+                        <h5 class="card-title">Display All Users</h5>
+                        <p class="card-text">Click the button to display all users.</p>
+                        <button id="butt" type="button" class="btn btn-secondary" (click)="getallUsers()">Display All Users</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <div class="card-body">
+                        <h5 class="card-title">Display All Buses</h5>
+                        <p class="card-text">Click the button to display all buses.</p>
+                        <button id="butt" type="button" class="btn btn-secondary" (click)="getallBuses()">Display All Buses</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <div class="card-body">
+                        <h5 class="card-title">Display All Bus Operators</h5>
+                        <p class="card-text">Click to display all bus operators.</p>
+                        <button id="butt" type="button" class="btn btn-secondary" (click)="getallOperator()">Display All Bus Operators</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <div class="card-body">
+                        <h5 class="card-title">Update Admin</h5>
+                        <p class="card-text">Click the button to update an admin.</p>
+                        <button id="butt" type="button" class="btn btn-secondary" (click)="onUpdateUser()">Update Admin</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Bus</h5>
+                        <p class="card-text">Click the button to add a bus.</p>
+                        <button id="butt" type="button" class="btn btn-secondary" (click)="createBus()">Add Bus</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function getalladmins() {
+            this.token = this.tokenservice.getToken();
+            this.adminService.alladmins(this.token).subscribe(
+                (response) => {
+                    // Display the response in the console
+
+                    this.router.navigate(['/display-all-admin']);
+
+                }
+
+            );
+        }
+
+        // Define the getallUsers function
+        function getallUsers() {
+            // Your logic to display all users
+            console.log('Displaying all users');
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <style>
+        /* Custom CSS */
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #35156b;
+            color: white;
+            z-index: 1000;
+            /* Ensure the navbar appears above other content */
+            display: flex;
+            justify-content: center;
+            /* Center items horizontally */
+            align-items: center;
+            /* Center items vertically */
+            padding: 10px 0;
+            /* Add padding for better spacing */
+        }
+        
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .navbar-back-button {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .body {
+            margin-top: 70px;
+            /* Adjust margin-top to accommodate the navbar */
+            text-align: center;
+        }
+        
+        #seat-container {
+            width: 80%;
+            /* Adjust the width as needed */
+            margin: 0 auto;
+            /* Center the container horizontally */
+        }
+        
+        table {
+            margin: 0 auto;
+        }
+        
+        td {
+            padding: 5px;
+            position: relative;
+        }
+        
+        .seat-image {
+            width: 50px;
+            /* Adjust seat image size */
+            height: 50px;
+        }
+        
+        .button {
+            margin-top: 20px;
+        }
+        
+        #butt {
+            background-color: #35156b;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark">
+        <h1 class="navbar-brand">🚍Fastx🚍</h1>
+        <button type="button" class="navbar-back-button" (click)="goBack()">Back</button>
+    </nav>
+
+    <div class="body">
+        <div id="seat-container">
+            <table>
+                <tr *ngFor="let row of seats; let i = index">
+                    <td *ngFor="let seat of row" [ngClass]="{'occupied': bookedSeats.includes(seat) || selectedSeatsList.has(seat)}" (click)="selectSeat(seat)">
+                        <img class="seat-image" src="../../../assets/seat.jpg" alt="Seat Image" />
+                        <span>{{ seat }}</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <button id="butt" class="button" [disabled]="selectedSeatCount === 0" (click)="sendDataOfSeats()">Proceed</button>
+    </div>
+
+    <!-- Your Angular script and dependencies -->
+
+    <script>
+        function goBack() {
+            // Implement your back button logic here
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

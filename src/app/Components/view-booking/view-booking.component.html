@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Details</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <style>
+        /* Navbar */
+        
+        .navbar {
+            background-color: #35156b;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar h1 {
+            margin: 0;
+        }
+        
+        .navbar .back-button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .navbar .back-button:hover {
+            background-color: #777;
+        }
+        /* Ticket Container */
+        
+        .ticketContainer {
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .ticket-details {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ticket-details h1 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .ticket-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .ticket-details th,
+        .ticket-details td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .ticket-details th {
+            text-align: left;
+            color: #555;
+        }
+        
+        .btn-download {
+            background-color: #777;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 620px;
+        }
+        
+        body {
+            background-image: url('../../assets/BusImage4.jpeg');
+            /* Adjust the path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #butt {
+            background-color: #35156b;
+        }
+        
+        .btn-download:hover {
+            background-color: #555;
+        }
+        
+        #tag {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- <button class="back-button" (click)="goBack()">Back</button> -->
+        <h1 id="tag">🚍Fastx🚍</h1>
+        <div></div>
+    </div>
+
+    <!-- Ticket Details -->
+    <div class="ticketContainer">
+        <div class="ticket-details" id="ticketPdf" #content>
+            <h1>Ticket Details</h1>
+            <table>
+                <tr>
+                    <th>Source</th>
+                    <td>{{bus.sourceCity}}</td>
+                    <th>Destination</th>
+                    <td>{{bus.destinationCity}}</td>
+                </tr>
+                <tr>
+                    <th>Travel Date</th>
+                    <td>{{booking.bookingDate}}</td>
+                    <th>Booking Id</th>
+                    <td>{{booking.bookingId}}</td>
+                </tr>
+                <tr>
+                    <th>Seat No</th>
+                    <td>{{booking.seatNo}}</td>
+                    <th>Name</th>
+                    <td>{{user.firstName}} {{user.lastName}}</td>
+                </tr>
+                <tr>
+                    <th>Bus Id</th>
+                    <td>{{bus.busId}}</td>
+                    <th>Arrival Time</th>
+                    <td>{{bus.departureTime}}</td>
+                </tr>
+                <tr>
+                    <th>Total Fare</th>
+                    <td colspan="3">Rs {{ amount }}</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <button id="butt" (click)="goBack()" class="btn-download">Home</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function downloadPDF() {
+            const doc = new jsPDF();
+            const ticketElement = document.getElementById('ticketPdf');
+            doc.html(ticketElement, {
+                callback: function(pdf) {
+                    pdf.save('ticket.pdf');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+h2{
+    text-align: center;
+}
+.container {
+    width: 100%;
+    height:100%;
+    background-color: #f2e6ff; /* Light purple shade */
+    /* Other styles */
+  }
+  .main{
+    width: 100%;
+    height:93vh;
+    background-color: #f2e6ff; /* Light purple shade */
+    /* Other styles */
+  }
