@@ -57,15 +57,27 @@
             margin: 0;
             padding: 0;
         }
+        /* Adjust background image for smaller devices */
+        
+        @media screen and (max-width: 768px) {
+            body {
+                background-image: url('../../assets/BusImage4_mobile.jpeg');
+                /* Adjust path to your mobile image */
+            }
+        }
     </style>
 
 </head>
 
 <body>
     <nav class="navbar navbar-dark">
-        <button type="button" class="btn btn-back left-corner" (click)="goBack()">Back</button>
-        <h1 class="navbar-brand">FASTX</h1>
-        <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Sign Out</button>
+        <!-- <button type="button" class="btn btn-back left-corner" (click)="goBack()">Back</button> -->
+        <h1 class="navbar-brand">
+            <a class="btn-fastx">🚍Fastx🚍</a>
+        </h1>
+        <div class="ml-auto">
+            <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Sign Out</button>
+        </div>
     </nav>
 
     <div class="container-fluid mt-5">
@@ -100,6 +112,22 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="row mt-3">
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Bus</h5>
+                        <p class="card-text">Click the button to add a bus.</p>
+                        <button id="butt" type="button" class="btn btn-secondary" (click)="createBus()">Add Bus</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 

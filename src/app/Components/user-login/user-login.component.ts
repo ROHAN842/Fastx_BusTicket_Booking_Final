@@ -7,10 +7,9 @@ import { UserJwtClientService } from 'src/app/Service/user-jwt/user-jwt-client.s
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+  styleUrls: ['./user-login.component.css'],
 })
 export class UserLoginComponent implements OnInit {
-  
   authRequest: AuthRequest = new AuthRequest();
 
   constructor(
@@ -31,6 +30,11 @@ export class UserLoginComponent implements OnInit {
       alert('Please fill in the required fields.');
     }
   }
+
+  passwordUpdation() {
+    this.router.navigate(['/updatepassword']);
+  }
+
   goBack() {
     this.router.navigate(['/']); // Replace '/' with the route you want to navigate back to
   }
@@ -39,16 +43,20 @@ export class UserLoginComponent implements OnInit {
       (genToken: any) => {
         // Store the generated token
         this.tokenService.setToken(genToken);
-  
+
         // Fetch the user's role
         this.jwtService.getRole(authRequest.username).subscribe(
           (role: any) => {
             console.log('Role:', role);
-            
-            if (role === 'ROLE_USER' || role === 'ROLE_ADMIN' || role === 'ROLE_BUSOPERATOR') {
+
+            if (
+              role === 'ROLE_USER' ||
+              role === 'ROLE_ADMIN' ||
+              role === 'ROLE_BUSOPERATOR'
+            ) {
               // Store the user's role in sessionStorage
               sessionStorage.setItem('role', role);
-              
+
               // Fetch the user ID and store it in sessionStorage
               this.jwtService.getId(authRequest.username).subscribe(
                 (id: any) => {
@@ -58,7 +66,7 @@ export class UserLoginComponent implements OnInit {
                   } else {
                     console.error('ID not found in the response.');
                   }
-                  
+
                   // Navigate based on user role
                   switch (role) {
                     case 'ROLE_USER':

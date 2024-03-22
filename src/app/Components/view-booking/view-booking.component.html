@@ -85,6 +85,19 @@
             margin-left: 620px;
         }
         
+        @media screen and (max-width: 768px) {
+            .btn-download {
+                margin-left: 0;
+                /* Reset the margin-left for smaller devices */
+                margin-top: 10px;
+                /* Adjust the margin-top for smaller devices */
+                padding: 8px 16px;
+                /* Adjust padding for smaller devices */
+                margin-bottom: 10px;
+                /* Add margin-bottom for spacing between buttons */
+            }
+        }
+        
         body {
             background-image: url('../../assets/BusImage4.jpeg');
             /* Adjust the path to your image */
@@ -107,6 +120,15 @@
         #tag {
             text-align: center;
         }
+        
+        #tkt {
+            color: blue;
+            text-decoration: underline;
+        }
+        
+        td {
+            color: red;
+        }
     </style>
 </head>
 
@@ -121,7 +143,7 @@
     <!-- Ticket Details -->
     <div class="ticketContainer">
         <div class="ticket-details" id="ticketPdf" #content>
-            <h1>Ticket Details</h1>
+            <h1 id="tkt">Ticket Details</h1>
             <table>
                 <tr>
                     <th>Source</th>
@@ -156,6 +178,9 @@
         </div>
     </div>
     <button id="butt" (click)="goBack()" class="btn-download">Home</button>
+
+    <button id="butt" (click)="makePDF()" class="btn-download">Download PDF</button>
+
 
     <script>
         function goBack() {

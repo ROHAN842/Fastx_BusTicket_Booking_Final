@@ -5,11 +5,11 @@ import { AdminJwtClientService } from 'src/app/Service/admin-jwt-client.service'
 import { TokenServiceService } from 'src/app/Service/token/token-service.service';
 
 @Component({
-  selector: 'app-all-buses',
-  templateUrl: './all-buses.component.html',
-  styleUrls: ['./all-buses.component.css'],
+  selector: 'app-userallbus',
+  templateUrl: './userallbus.component.html',
+  styleUrls: ['./userallbus.component.css'],
 })
-export class AllBusesComponent {
+export class UserallbusComponent {
   busList: Bus[] = [];
 
   constructor(
@@ -28,19 +28,8 @@ export class AllBusesComponent {
       this.busList = buses;
     });
   }
-  deleteBus(busId: number) {
-    const token = this.tokenService.getToken();
-    this.operatorService.deleteBus(busId, token).subscribe(
-      (response) => {
-        console.log('Bus deleted:', response);
-        alert('Bus deleted');
-      },
-      (error) => {
-        console.error('Error deleting Bus:', error);
-      }
-    );
-  }
+
   goBack() {
-    this.router.navigate(['adminUI']); // Replace '/' with the route you want to navigate back to
+    this.router.navigate(['userUI']); // Replace '/' with the route you want to navigate back to
   }
 }

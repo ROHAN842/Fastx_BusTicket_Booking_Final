@@ -81,21 +81,53 @@
             background-color: #007bff;
             border-color: #007bff;
         }
+        /* Responsive styles */
+        /* For devices with a maximum width of 768px */
+        
+        @media (max-width: 768px) {
+            .form-container {
+                width: 80%;
+                /* Adjust width */
+            }
+        }
+        /* For devices with a maximum width of 576px */
+        
+        @media (max-width: 576px) {
+            .form-container {
+                width: 90%;
+                /* Adjust width */
+            }
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark">
-        <h1 class="navbar-brand">
-            <a href="/" class="btn-fastx">🚍Fastx🚍</a>
-        </h1>
-        <!-- <span class="navbar navbar-dark">Welcome, {{ loggedInUsername }}!</span> -->
-        <div class="ml-auto">
-            <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="onUpdateUser()">Edit Profile</button>
-            <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="seebookings()">All Bookings</button>
-            <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Logout</button>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #35156b;">
+        <a class="navbar-brand">🚍Fastx🚍</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="onUpdateUser()">Edit Profile</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="getallBuses()">Available Buses</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="seebookings()">All Bookings</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Logout</button>
+                </li>
+            </ul>
         </div>
     </nav>
+
+
 
     <div class="background-image-container">
         <div class="form-container">

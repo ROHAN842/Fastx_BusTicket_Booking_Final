@@ -25,45 +25,48 @@ import { SelectSeatComponent } from './Components/select-seat/select-seat.compon
 import { ViewBookingComponent } from './Components/view-booking/view-booking.component';
 import { AllBusesComponent } from './Components/all-buses/all-buses.component';
 import { UserallbookingComponent } from './Components/userallbooking/userallbooking.component';
-
-
+// import { UpdatepasswordformComponent } from './Components/updatepasswordform/updatepasswordform.component';
+import { UpdatepasswordformComponent } from './Components/updatepasswordform/updatepasswordform.component';
+import { OperatorAddBusComponent } from './Components/operatoraddbus/operatoraddbus.component';
+import { UserallbusComponent } from './Components/userallbus/userallbus.component';
 
 const routes: Routes = [
-  
-  
-  {path:'', component: HomeComponent},
-  {path:'admin-create', component:AdminCreateComponent},
-  {path:'adminUI', component:AdminUIComponent},
-  {path:'dashboard',component:DashboardComponent},
-  {path:'user-signup',component:UserSignupComponent},
-  {path:'signin',component:UserLoginComponent},
-  {path:'userUI', component:UserUiComponent},
-  {path:'display-all-admin',component:DisplayAllAdminComponent},
-  {path:'user-update',component:UserUpdateComponent},
-  {path:'bus-operator-signup',component:BusOperatorSignupComponent},
-  {path:'operator-ui',component:OperatorUiComponent},
-  {path:'user-login',component:UserLoginComponent},
-  {path:'select-seat',component:SelectSeatComponent},
-  { path:'update-admin', component :UpdateAdminComponent },
- 
-  {path:'add-bus',component:AddBusComponent},
-  {path:'searchbus',component:SearchbusComponent},
-  {path:'book-bus',component:BookBusComponent},
-  {path:'booking/:busId',component:BookingComponent},
-  {path:'update-bus/:id',component:UpdateBusComponent},
- {path:'getAllBus',component:GetAllBusComponent},
- {path:'getAllUsers',component:GetAllUserComponent},
- {path:'getAllOperator',component:GetAllOperatorComponent},
- {path:'update-busOperator',component:UpdateBusOperatorComponent},
- {path:'seatBooking/:busId/:date',component:SelectSeatComponent},
- {path:'booking',component:BookingComponent},
- {path:'view-booking/:bookingId/:busId',component:ViewBookingComponent},
- {path:'all-buses',component:AllBusesComponent},
- {path:'user-boo',component:UserallbookingComponent}
+  { path: '', component: HomeComponent },
+  { path: 'admin-create', component: AdminCreateComponent },
+  { path: 'adminUI', component: AdminUIComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'user-signup', component: UserSignupComponent },
+  { path: 'signin', component: UserLoginComponent },
+  { path: 'userUI', component: UserUiComponent },
+  { path: 'display-all-admin', component: DisplayAllAdminComponent },
+  { path: 'user-update', component: UserUpdateComponent },
+  { path: 'bus-operator-signup', component: BusOperatorSignupComponent },
+  { path: 'operator-ui', component: OperatorUiComponent },
+  { path: 'user-login', component: UserLoginComponent },
+  { path: 'select-seat', component: SelectSeatComponent },
+  { path: 'update-admin', component: UpdateAdminComponent },
+
+  { path: 'add-bus', component: AddBusComponent },
+  { path: 'searchbus', component: SearchbusComponent },
+  { path: 'book-bus', component: BookBusComponent },
+  { path: 'booking/:busId', component: BookingComponent },
+  { path: 'update-bus/:id', component: UpdateBusComponent },
+  { path: 'getAllBus', component: GetAllBusComponent },
+  { path: 'getAllUsers', component: GetAllUserComponent },
+  { path: 'getAllOperator', component: GetAllOperatorComponent },
+  { path: 'update-busOperator', component: UpdateBusOperatorComponent },
+  { path: 'seatBooking/:busId/:date', component: SelectSeatComponent },
+  { path: 'booking', component: BookingComponent },
+  { path: 'view-booking/:bookingId/:busId', component: ViewBookingComponent },
+  { path: 'all-buses', component: AllBusesComponent },
+  { path: 'user-boo', component: UserallbookingComponent },
+  { path: 'updatepassword', component: UpdatepasswordformComponent },
+  { path: 'operator-addbus', component: OperatorAddBusComponent },
+  { path: 'user-allbus', component: UserallbusComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

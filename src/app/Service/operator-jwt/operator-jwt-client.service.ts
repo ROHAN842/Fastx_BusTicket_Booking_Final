@@ -54,4 +54,10 @@ export class OperatorJwtClientService {
   getoperatorById(operatorId: number): Observable<Operator> {
     return this.http.get<Operator>(`${this.apiUrl}getById/${operatorId}`);
   }
+
+  createBus(bus: Bus, token: string): Observable<Bus> {
+    let tokenString = 'Bearer ' + token;
+    const headers = new HttpHeaders().set('Authorization', tokenString);
+    return this.http.post<Bus>(this.baseUrl + 'create', bus, { headers });
+  }
 }

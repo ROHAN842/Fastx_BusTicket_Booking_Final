@@ -81,41 +81,45 @@
             <div class="container">
                 <h2>Bus Details</h2>
                 <div *ngIf="buses.length > 0; else noBusesFound">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Bus ID</th>
-                                <th scope="col">Bus Number</th>
-                                <th scope="col">Capacity</th>
-                                <th scope="col">Source City</th>
-                                <th scope="col">Destination City</th>
-                                <th scope="col">Distance (Kms)</th>
-                                <th scope="col">Duration (Hours)</th>
-                                <th scope="col">Departure Time</th>
-                                <th scope="col">Fare</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let bus of buses">
-                                <td>{{ bus.busId }}</td>
-                                <td>{{ bus.busNumber }}</td>
-                                <td>{{ bus.capacity }}</td>
-                                <td>{{ bus.sourceCity }}</td>
-                                <td>{{ bus.destinationCity }}</td>
-                                <td>{{ bus.distanceInKms }}</td>
-                                <td>{{ bus.durationInHours }}</td>
-                                <td>{{ bus.departureTime }}</td>
-                                <td>{{ bus.fare }}</td>
-                                <td>{{ bus.date }}</td>
-                                <td>
-                                    <button (click)="bookBus(bus.busId, bus.date)">Book</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Bus ID</th>
+                                    <th scope="col">Bus Number</th>
+                                    <th scope="col">Capacity</th>
+                                    <th scope="col">Source City</th>
+                                    <th scope="col">Destination City</th>
+                                    <th scope="col">Distance (Kms)</th>
+                                    <th scope="col">Duration (Hours)</th>
+                                    <th scope="col">Departure Time</th>
+                                    <th scope="col">Fare</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let bus of buses">
+                                    <td>{{ bus.busId }}</td>
+                                    <td>{{ bus.busNumber }}</td>
+                                    <td>{{ bus.capacity }}</td>
+                                    <td>{{ bus.sourceCity }}</td>
+                                    <td>{{ bus.destinationCity }}</td>
+                                    <td>{{ bus.distanceInKms }}</td>
+                                    <td>{{ bus.durationInHours }}</td>
+                                    <td>{{ bus.departureTime }}</td>
+                                    <td>{{ bus.fare }}</td>
+                                    <td>{{ bus.date }}</td>
+                                    <td>
+                                        <button (click)="bookBus(bus.busId, bus.date)">Book</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
                 <ng-template #noBusesFound>
                     <p>No buses found for the selected criteria.</p>
                 </ng-template>

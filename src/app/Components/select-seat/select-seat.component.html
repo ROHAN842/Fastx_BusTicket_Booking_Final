@@ -79,13 +79,71 @@
             background-color: #35156b;
             color: white;
         }
+        /* For devices with a maximum width of 767px */
+        
+        @media (max-width: 767px) {
+            .navbar {
+                font-size: 14px;
+                /* Reduce font size for navbar */
+            }
+            .navbar h1 {
+                font-size: 20px;
+                /* Reduce font size for navbar brand */
+            }
+            .navbar-back-button {
+                right: 10px;
+                /* Adjust position of back button */
+            }
+            .body {
+                margin-top: 60px;
+                /* Adjust margin-top to accommodate navbar */
+            }
+            #seat-container {
+                max-width: 90%;
+                /* Adjust width of seat container */
+                padding: 10px;
+                /* Adjust padding */
+            }
+            td {
+                height: 70px;
+                /* Adjust height of table cells */
+                width: 70px;
+                /* Adjust width of table cells */
+                margin-right: 10px;
+                /* Adjust margin between table cells */
+            }
+            .button {
+                font-size: 14px;
+                /* Reduce font size for button */
+                padding: 10px 20px;
+                /* Adjust padding */
+                bottom: 10px;
+                /* Adjust position of button */
+            }
+            .backbutton {
+                bottom: 10px;
+                /* Adjust position of back button */
+            }
+        }
+        /* For devices with a minimum width of 768px */
+        
+        @media (min-width: 768px) {
+            .body {
+                margin-top: 70px;
+                /* Adjust margin-top to accommodate navbar */
+            }
+            #seat-container {
+                max-width: 80%;
+                /* Adjust width of seat container */
+            }
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-dark">
         <h1 class="navbar-brand">🚍Fastx🚍</h1>
-        <button type="button" class="navbar-back-button" (click)="goBack()">Back</button>
+        <!-- <button type="button" class="navbar-back-button" (click)="goBack()">Back</button> -->
     </nav>
 
     <div class="body">

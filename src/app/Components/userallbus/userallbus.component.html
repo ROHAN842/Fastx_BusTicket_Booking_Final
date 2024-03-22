@@ -38,25 +38,16 @@
             margin: 0;
             padding: 0;
         }
+        /* Custom table style */
         
-        @media screen and (max-width: 768px) {
-            body {
-                background-size: auto;
-                /* Change background size for smaller devices */
-            }
-        }
-        /* Table styles */
-        
-        .table-container {
+        .table {
             background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
+            /* White with 70% opacity */
         }
         
-        .table th,
-        .table td {
+        .table tbody td {
             font-weight: bold;
+            /* Make table data bold */
         }
     </style>
 
@@ -66,11 +57,11 @@
     <nav class="navbar navbar-dark">
         <button type="button" class="btn btn-back left-corner" (click)="goBack()">Back</button>
         <h1 class="navbar-brand">🚍Fastx🚍</h1>
-        <!-- Add the sign out button here if needed -->
+        <!-- Add sign out button here if needed -->
     </nav>
 
     <!-- Your content here -->
-    <div class="container table-container">
+    <div class="container">
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -85,7 +76,6 @@
                     <th scope="col">Departure Time</th>
                     <th scope="col">Fare</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -105,9 +95,10 @@
                         <td>{{ bus.departureTime }}</td>
                         <td>{{ bus.fare }}</td>
                         <td>{{ bus.date | date }}</td>
-                        <td>
+                        <!-- <td>
                             <button type="button" class="btn btn-danger" (click)="deleteBus(bus.busId)">Delete</button>
-                        </td>
+                        </td> -->
+
                     </tr>
                 </ng-template>
             </tbody>

@@ -60,10 +60,14 @@
 
 <body>
     <nav class="navbar navbar-dark">
-        <button type="button" class="btn btn-back left-corner" (click)="goBack()">Back</button>
+        <!-- <button type="button" class="btn btn-back left-corner" (click)="goBack()">Back</button> -->
         <h1 class="navbar-brand">🚍Fastx🚍</h1>
         <!-- <span class="welcome-message">Welcome, {{ loggedInUsername }}</span> Move the welcome message here -->
-        <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Sign Out</button>
+
+        <div class="ml-auto">
+
+            <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Sign Out</button>
+        </div>
     </nav>
     <!-- Your content here -->
     <div class="container-fluid mt-5">

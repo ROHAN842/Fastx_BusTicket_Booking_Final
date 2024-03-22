@@ -32,11 +32,14 @@ import { SelectSeatComponent } from './Components/select-seat/select-seat.compon
 import { ViewBookingComponent } from './Components/view-booking/view-booking.component';
 import { AllBusesComponent } from './Components/all-buses/all-buses.component';
 import { UserallbookingComponent } from './Components/userallbooking/userallbooking.component';
+import { UpdatepasswordformComponent } from './Components/updatepasswordform/updatepasswordform.component';
+import { OperatorAddBusComponent } from './Components/operatoraddbus/operatoraddbus.component';
+import { UserallbusComponent } from './Components/userallbus/userallbus.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    
+
     HomeComponent,
     AdminCreateComponent,
     AdminUIComponent,
@@ -46,7 +49,7 @@ import { UserallbookingComponent } from './Components/userallbooking/userallbook
     UserUpdateComponent,
     DisplayAllAdminComponent,
     BusOperatorSignupComponent,
-   
+
     OperatorUiComponent,
     UpdateAdminComponent,
     AddBusComponent,
@@ -62,17 +65,18 @@ import { UserallbookingComponent } from './Components/userallbooking/userallbook
     ViewBookingComponent,
     AllBusesComponent,
     UserallbookingComponent,
-   
-
+    UpdatepasswordformComponent,
+    OperatorAddBusComponent,
+    UserallbusComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

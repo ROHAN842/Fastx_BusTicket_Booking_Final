@@ -11,9 +11,14 @@
         
         body {
             background-image: url('../../assets/BusImage4.jpeg');
-            background-size: 100% 100%;
+            /* background-size: 100% 100%; */
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
             /* padding-top: 20px; Adjust the top padding to accommodate the navbar */
         }
         
@@ -56,11 +61,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-        <a class="navbar-brand" href="#">🚍Fastx🚍</a>
+        <a class="navbar-brand">🚍Fastx🚍</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <button type="button" class="btn btn-dark" (click)="back()">Back</button>
+                <li class="nav-item d-none d-lg-block">
+                    <button type="button" class="btn btn-dark" (click)="back()"></button>
                 </li>
             </ul>
         </div>

@@ -5,7 +5,7 @@ import { Bus } from 'src/app/Model/bus.model';
 import { BookingService } from 'src/app/Service/booking/booking.service';
 import { UserJwtClientService } from 'src/app/Service/user-jwt/user-jwt-client.service';
 import { User } from 'src/app/Model/user.model';
-// import { jsPDF } from 'jspdf';
+import { jsPDF } from 'jspdf';
 import { TokenServiceService } from 'src/app/Service/token/token-service.service';
 
 @Component({
@@ -71,6 +71,15 @@ export class ViewBookingComponent implements OnInit {
             }
           });
         });
+    });
+  }
+
+  makePDF() {
+    let pdf = new jsPDF('p', 'pt', 'a3');
+    pdf.html(this.el.nativeElement, {
+      callback: (pdf) => {
+        pdf.save('booking.pdf');
+      },
     });
   }
 

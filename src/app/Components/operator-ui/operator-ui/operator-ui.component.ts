@@ -9,19 +9,24 @@ import { TokenServiceService } from 'src/app/Service/token/token-service.service
 @Component({
   selector: 'app-operator-ui',
   templateUrl: './operator-ui.component.html',
-  styleUrls: ['./operator-ui.component.css']
+  styleUrls: ['./operator-ui.component.css'],
 })
 export class OperatorUiComponent {
-  token:any;
+  token: any;
   buses: Bus[] = [];
-  bus: Bus = new Bus(0, '', 0, '', '', 0, 0, '', 0, new Date(),0);
-  operator: Operator=new Operator();
+  bus: Bus = new Bus(0, '', 0, '', '', 0, 0, '', 0, new Date(), 0);
+  operator: Operator = new Operator();
   loggedInUsername: string = '';
 
-  constructor(private busService:BusService, private router: Router,private tokenservice:TokenServiceService,private operatorService:OperatorJwtClientService) {}
+  constructor(
+    private busService: BusService,
+    private router: Router,
+    private tokenservice: TokenServiceService,
+    private operatorService: OperatorJwtClientService
+  ) {}
 
   ngOnInit(): void {
-    let id = Number(sessionStorage.getItem("id"));
+    let id = Number(sessionStorage.getItem('id'));
     console.log(id);
     this.operatorService.getoperatorById(id).subscribe((Response) => {
       this.operator = Response;
@@ -30,45 +35,37 @@ export class OperatorUiComponent {
     });
   }
 
-
- 
   updateBusDetails(bus: Bus) {
-   
-    this.token=this.tokenservice.getToken();
-    this.operatorService.updateBus(this.bus,this.token).subscribe(
-      (response) => {
-        console.log(response); 
-      
-        this.router.navigate(['/update-bus', bus.busId]);
+    this.token = this.tokenservice.getToken();
+    this.operatorService
+      .updateBus(this.bus, this.token)
+      .subscribe((response) => {
+        console.log(response);
 
-      }
-    );
-    
+        this.router.navigate(['/update-bus', bus.busId]);
+      });
   }
 
   getAllBus() {
-    this.token=this.tokenservice.getToken();
-    this.operatorService.getAllBuses(this.token).subscribe(
-      (response) => {
-        console.log(response); 
-      
-        this.router.navigate(['/getAllBus']);
+    this.token = this.tokenservice.getToken();
+    this.operatorService.getAllBuses(this.token).subscribe((response) => {
+      console.log(response);
 
-      }
-     
-    );
+      this.router.navigate(['/getAllBus']);
+    });
   }
   logout() {
-   
     this.tokenservice.clearToken();
     this.router.navigate(['/user-login']);
   }
   onUpdateUser() {
-  
     this.router.navigate(['/update-busOperator']);
   }
   goBack() {
     this.router.navigate(['user-login']); // Replace '/' with the route you want to navigate back to
   }
-  
+
+  createBus() {
+    this.router.navigate(['/operator-addbus']);
+  }
 }

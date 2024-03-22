@@ -34,7 +34,7 @@ public class BusesRestController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BusesRestController.class);
 	@PostMapping("/create")
-	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_BUSOPERATOR')")
     public Buses createBuses(@RequestBody BusesDTO busdto) {
 
 		 logger.info("Bus created");
@@ -49,7 +49,7 @@ public class BusesRestController {
 		return  busesService.updateBuses(busdto,busId);
 	}
 	@DeleteMapping("/delete/{busId}")
-	@PreAuthorize("hasAnyAuthority('ROLE_BUSOPERATOR')")
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_BUSOPERATOR')")
 	public void deleteBuses(@PathVariable Long busId)
 	{
 
@@ -69,7 +69,7 @@ public class BusesRestController {
 		
 	}
 	@GetMapping("/getAll")
-	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_BUSOPERATOR')")
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_BUSOPERATOR','ROLE_USER')")
 	public List<BusesDTO> getAllBuses(){
 		
 

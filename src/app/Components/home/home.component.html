@@ -96,6 +96,73 @@
         .navbar.bg-dark {
             background-color: #35156b !important;
         }
+        /* For devices with a maximum width of 768px */
+        
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                /* Push the collapsed navbar below the navbar */
+                left: 0;
+                width: 100%;
+                background-color: #343a40;
+                /* Change background color */
+                z-index: 1000;
+                /* Ensure it's above other elements */
+            }
+            .navbar-nav {
+                flex-direction: column;
+                /* Stack the nav items vertically */
+                padding-top: 10px;
+                /* Add some top padding */
+            }
+            .navbar-nav .nav-item {
+                margin-right: 0;
+                /* Remove right margin */
+            }
+            .navbar-brand {
+                margin-right: 0;
+                /* Remove right margin */
+            }
+            .navbar-toggler {
+                position: absolute;
+                right: 15px;
+                /* Position the toggle button on the right */
+                top: 10px;
+                /* Adjust vertical position */
+            }
+            .form-container {
+                width: 80%;
+                /* Adjust width */
+                max-width: 300px;
+                /* Adjust max-width */
+            }
+            .background-image {
+                /* height: 50vh; */
+                width: 100%;
+                height: auto;
+                /* Adjust height for smaller screens */
+            }
+        }
+        /* For devices with a maximum width of 576px */
+        
+        @media (max-width: 576px) {
+            .navbar-nav .nav-item {
+                margin-right: 0;
+                /* Remove right margin */
+                margin-bottom: 10px;
+                /* Add bottom margin */
+            }
+            .navbar-brand {
+                margin-bottom: 10px;
+                /* Add bottom margin */
+            }
+            .background-image {
+                height: 40vh;
+                width: 100%;
+                /* Adjust height for smaller screens */
+            }
+        }
     </style>
 
 </head>
@@ -109,7 +176,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/user-signup">Sign Up</a>
+                    <a class="nav-link" routerLink="/user-signup">User Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/bus-operator-signup">Operator Sign Up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/signin">Login</a>
