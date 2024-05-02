@@ -6,23 +6,28 @@ import { Customer } from 'src/app/Model/customer.model';
 import { User } from 'src/app/Model/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookingService {
-
   apiUrl: string = 'http://localhost:8186/api/v1/bookings/';
   baseUrl: string = 'http://localhost:8186/api/v1/buses/';
   cusUrl: string = 'http://localhost:8186/api/v1/usercustomers/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  createBooking( book:Booking , busId: number,userId: number): Observable<Booking> {
-    return this.http.post<Booking>(`${this.apiUrl}add/${busId}/${userId}`, book);
+  createBooking(
+    book: Booking,
+    busId: number,
+    userId: number
+  ): Observable<Booking> {
+    return this.http.post<Booking>(
+      `${this.apiUrl}add/${busId}/${userId}`,
+      book
+    );
   }
   getBusById(busId: number): Observable<any> {
     const url = `${this.baseUrl}getBusById/${busId}`;
-    return this.http.get<any>(url)
-     
+    return this.http.get<any>(url);
   }
   getAllBookingsById(userId: number, token: string): Observable<any[]> {
     // Construct the Authorization header
@@ -41,10 +46,9 @@ export class BookingService {
     const url = `${this.apiUrl}getById/${bookingId}`;
     return this.http.get<Booking>(url, { headers });
   }
-  occupiedSeats(date:Date,busId:number):Observable<string []>{
-    
-    return this.http.get<string []>(this.apiUrl+`fetchbookedseats/${date}/${busId}`);
-}
-
- 
+  occupiedSeats(date: Date, busId: number): Observable<string[]> {
+    return this.http.get<string[]>(
+      this.apiUrl + `fetchbookedseats/${date}/${busId}`
+    );
+  }
 }

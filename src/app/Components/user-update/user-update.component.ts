@@ -35,7 +35,7 @@ export class UserUpdateComponent {
     console.log(tokens);
     this.userService.updateUser(this.user, tokens).subscribe(
       () => {
-        // console.log('User updated');
+        console.log('User updated');
         alert('User details updated successfully');
       },
       (error) => {

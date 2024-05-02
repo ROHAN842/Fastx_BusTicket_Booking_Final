@@ -32,6 +32,7 @@ export class GetAllUserComponent {
     this.adminService.deleteUser(userId, token).subscribe(
       (response) => {
         console.log('User deleted:', response);
+        this.fetchUsers();
         alert('User deleted successfully');
       },
       (error) => {

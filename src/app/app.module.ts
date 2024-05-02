@@ -35,6 +35,8 @@ import { UserallbookingComponent } from './Components/userallbooking/userallbook
 import { UpdatepasswordformComponent } from './Components/updatepasswordform/updatepasswordform.component';
 import { OperatorAddBusComponent } from './Components/operatoraddbus/operatoraddbus.component';
 import { UserallbusComponent } from './Components/userallbus/userallbus.component';
+import { AdminupdatebusComponent } from './Components/adminupdatebus/adminupdatebus.component';
+import { AdminSignupComponent } from './Components/admin-signup/admin-signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +70,8 @@ import { UserallbusComponent } from './Components/userallbus/userallbus.componen
     UpdatepasswordformComponent,
     OperatorAddBusComponent,
     UserallbusComponent,
+    AdminupdatebusComponent,
+    AdminSignupComponent,
   ],
   imports: [
     BrowserModule,

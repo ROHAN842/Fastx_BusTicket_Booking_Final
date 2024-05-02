@@ -33,6 +33,7 @@ export class AllBusesComponent {
     this.operatorService.deleteBus(busId, token).subscribe(
       (response) => {
         console.log('Bus deleted:', response);
+        this.fetchBuses();
         alert('Bus deleted');
       },
       (error) => {

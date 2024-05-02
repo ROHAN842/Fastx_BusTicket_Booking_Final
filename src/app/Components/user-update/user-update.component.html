@@ -71,6 +71,9 @@
         <div class="form-container">
             <form (ngSubmit)="updateUserDetails()">
                 <div class="form-group">
+                    <input type="text" class="form-control" id="userId" name="userId" [(ngModel)]="user.userId" placeholder="User Id">
+                </div>
+                <div class="form-group">
                     <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" placeholder="First Name">
                 </div>
                 <div class="form-group">

@@ -29,6 +29,8 @@ import { UserallbookingComponent } from './Components/userallbooking/userallbook
 import { UpdatepasswordformComponent } from './Components/updatepasswordform/updatepasswordform.component';
 import { OperatorAddBusComponent } from './Components/operatoraddbus/operatoraddbus.component';
 import { UserallbusComponent } from './Components/userallbus/userallbus.component';
+import { AdminupdatebusComponent } from './Components/adminupdatebus/adminupdatebus.component';
+import { AdminSignupComponent } from './Components/admin-signup/admin-signup.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -63,6 +65,8 @@ const routes: Routes = [
   { path: 'updatepassword', component: UpdatepasswordformComponent },
   { path: 'operator-addbus', component: OperatorAddBusComponent },
   { path: 'user-allbus', component: UserallbusComponent },
+  { path: 'admin-update-bus/:id', component: AdminupdatebusComponent },
+  { path: 'admin-signup', component: AdminSignupComponent },
 ];
 
 @NgModule({

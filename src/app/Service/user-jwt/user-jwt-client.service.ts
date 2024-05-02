@@ -59,4 +59,14 @@ export class UserJwtClientService {
 
     return this.http.get<Bus[]>(this.apibusUrl + 'getAll', { headers });
   }
+
+  deleteBooking(bookingId: number, token: string): Observable<any> {
+    // Create the Authorization header with the bearer token
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+
+    // Make the HTTP DELETE request to delete the booking by its ID
+    return this.http.delete<any>(`${this.apibUrl}delete/${bookingId}`, {
+      headers,
+    });
+  }
 }

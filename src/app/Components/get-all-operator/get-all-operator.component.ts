@@ -34,6 +34,7 @@ export class GetAllOperatorComponent {
     this.adminService.deleteOperator(operatorId, token).subscribe(
       (response) => {
         console.log('Operator deleted:', response);
+        this.fetchOperators();
         alert('Operator deleted successfully');
       },
       (error) => {

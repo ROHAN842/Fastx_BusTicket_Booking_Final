@@ -35,6 +35,7 @@ export class DisplayAllAdminComponent {
     this.adminService.delete(adminId, token).subscribe(
       (response) => {
         console.log('Admin deleted:', response);
+        this.fetchAdmins();
         alert('Admin deleted successfully');
       },
       (error) => {
