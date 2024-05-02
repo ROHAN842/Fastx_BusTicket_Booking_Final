@@ -20,6 +20,7 @@ public interface IAdminService {
 	public AdminDTO getAdmin(Long adminId);
     Optional<Admin> findByfirstName(String firstName);
 	public List<Admin>getAllAdmin();
+	public boolean checkIfAdminExists(String email);
 	
 	
 	

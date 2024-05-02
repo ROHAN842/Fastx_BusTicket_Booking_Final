@@ -15,4 +15,5 @@ public interface IBusOperatorsService {
 	
 	public List<BusOperators>getAllBusOperators();
 	Optional<BusOperators> findByoperatorName(String operatorName);
+	public boolean checkIfBusOperatotExists(String email);
 }

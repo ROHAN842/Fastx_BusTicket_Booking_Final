@@ -15,10 +15,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
-/*
- * Author:Vishal Anand
- * Date: 20-11-23
- */
+
 
 
 @Entity

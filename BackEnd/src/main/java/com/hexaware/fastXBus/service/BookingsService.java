@@ -191,7 +191,7 @@ public class BookingsService implements IBookingsService {
             // You can use HTML to format the email content as a table
             String htmlContent = "<html><body>" +
                     "<h2>Dear " + booking.getEmail() + ",</h2>" +
-                    "<p>Below are your booking details:</p>" +
+                    "<p>⬇️ Below are your booking details: ⬇️</p>" +
                     "<table border='1'>" +
                     "<tr><td>Booking ID</td><td>" + booking.getBookingId() + "</td></tr>" +
                     "<tr><td>Booking Date</td><td>" + booking.getBookingDate() + "</td></tr>" +
@@ -199,7 +199,7 @@ public class BookingsService implements IBookingsService {
                     "<tr><td>Amount</td><td>" + booking.getAmount() + "</td></tr>" +
                     "<tr><td>Seat Number</td><td>" + booking.getSeatNo() + "</td></tr>" +
                     "</table>" +
-                    "<p>Below are the bus details:</p>" +
+                    "<p>⬇️ Below are the bus details: ⬇️</p>" +
                     "<table border='1'>" +
                     "<tr><td>Bus Number</td><td>" + bus.getBusNumber() + "</td></tr>" +
                     "<tr><td>Source City</td><td>" + bus.getSourceCity() + "</td></tr>" +
@@ -209,7 +209,7 @@ public class BookingsService implements IBookingsService {
                     "<tr><td>Departure Time</td><td>" + bus.getDepartureTime() + "</td></tr>" +
                     "<tr><td>Date of Journey</td><td>" + bus.getDate() + "</td></tr>" +
                     "</table>" +
-                    "<p>Thanks for choosing FastX. Have a safe journey!</p>" +
+                    "<p>🙏 Thanks for choosing FastX 🙏 Have a safe journey!!!!!</p>" +
                     "</body></html>";
 
             // Send the email

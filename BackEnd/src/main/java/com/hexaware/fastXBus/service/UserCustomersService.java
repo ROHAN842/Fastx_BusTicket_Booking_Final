@@ -65,6 +65,8 @@ public class UserCustomersService implements IUserCustomersService {
 	        existingUser.setFirstName(usercustomerdto.getFirstName());
 	        existingUser.setLastName(usercustomerdto.getLastName());
 	        existingUser.setEmail(usercustomerdto.getEmail());
+	        //existingUser.setPassword(passwordEncoder.encode(usercustomerdto.getPassword()));
+//	        existingUser.setPassword(usercustomerdto.getPassword());
 	        existingUser.setPhoneNumber(usercustomerdto.getPhoneNumber());
 	        existingUser.setAddress(usercustomerdto.getAddress());
 	        existingUser.setState(usercustomerdto.getState());
@@ -178,6 +180,14 @@ public class UserCustomersService implements IUserCustomersService {
 	    // Entity not found in any repository
 	    logger.error("Entity not found with name: " + name);
 	    return null;
+	}
+
+	@Override
+	public boolean checkIfUserExists(String email) {
+		// TODO Auto-generated method stub
+        return repository.existsByEmail(email);
+
+		
 	}
 
 

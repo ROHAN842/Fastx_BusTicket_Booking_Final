@@ -16,5 +16,8 @@ public interface IAdminRepository extends JpaRepository<Admin,Long > {
 	Optional<Admin> findByfirstName(String firstName);
 	 @Query("SELECT r.getRole FROM Admin r WHERE r.firstName = :adName")
 	    public String getRoleByFirstName(@Param("adName") String firstName);
+	 
+		public boolean existsByEmail(String email);
+
 	
 }

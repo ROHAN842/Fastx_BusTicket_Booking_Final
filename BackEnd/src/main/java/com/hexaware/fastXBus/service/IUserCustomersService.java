@@ -22,6 +22,7 @@ public interface IUserCustomersService {
 	public List<UserCustomersDTO>getAllUserCustomers();
 	UserCustomers getUserCustomersByBookingId(Long bookingId);
 	public String getRoleByfirstName(String firstName);
+	public boolean checkIfUserExists(String email);
 	
 
 }

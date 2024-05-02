@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class Friday1Application {
+public class Fastx {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Friday1Application.class, args);
+		SpringApplication.run(Fastx.class, args);
 	}
 	@Bean
 	public RestTemplate getRestTemplate() {

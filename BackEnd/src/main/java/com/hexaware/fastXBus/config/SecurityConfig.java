@@ -45,7 +45,7 @@ public class SecurityConfig {
         return http.csrf().disable()
         		.cors().and()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/usercustomers/create","/api/v1/allsinglelogin/authenticate","/api/v1/allsinglelogin/gettherole/{firstName}","/api/v1/allsinglelogin/getId/{firstName}","/api/v1/admins/create","/api/v1/bookings/add/{busId}/{userId}","/api/v1/bookings/fetchbookedseats/{date}/{busId}","/api/v1/bookings/sendemailonbooking/{bookingId}","api/v1/buses/getBusById/{busId}","/api/v1/buses/details","/api/v1/busoperators/create","/api/v1/busoperators/getById/{operatorId}","/v3/api-docs/**", "/swagger-ui/**","/swagger-resources/**").permitAll()
+                .requestMatchers("/api/v1/usercustomers/create","/api/v1/password/updatePassword","/api/v1/allsinglelogin/authenticate","/api/v1/allsinglelogin/gettherole/{firstName}","/api/v1/allsinglelogin/getId/{firstName}","/api/v1/admins/create","/api/v1/bookings/add/{busId}/{userId}","/api/v1/bookings/fetchbookedseats/{date}/{busId}","/api/v1/bookings/sendemailonbooking/{bookingId}","api/v1/buses/getBusById/{busId}","/api/v1/buses/details","/api/v1/busoperators/create","/api/v1/busoperators/getById/{operatorId}","/v3/api-docs/**", "/swagger-ui/**","/swagger-resources/**").permitAll()
                 .and()
                 .authorizeHttpRequests().requestMatchers("/api/v1/usercustomers/**","/api/v1/admins/**","/api/v1/bookings/**","/api/v1/buses/**","/api/v1/busoperators/**")
                 .authenticated().and() //.formLogin().and().build();

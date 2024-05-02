@@ -96,6 +96,12 @@ public class AdminService implements IAdminService {
 		return repository.findByfirstName(firstName);
 	}
 
+	@Override
+	public boolean checkIfAdminExists(String email) {
+		// TODO Auto-generated method stub
+		return repository.existsByEmail(email);
+	}
+
 	
 	
 

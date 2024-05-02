@@ -15,4 +15,7 @@ public interface IBusOperatorsRepository extends JpaRepository<BusOperators,Long
 	Optional<BusOperators> findByoperatorName(String operatorName);
 	 @Query("SELECT o.role FROM BusOperators o WHERE o.operatorName = :Name")
 	    public String getRoleByOperatorName(@Param("Name") String operatorName);
+	 
+		//public boolean existsByEmail(String email);
+
 	}

@@ -86,5 +86,13 @@ public class BusOperatorsService implements IBusOperatorsService {
 		return repository.findByoperatorName(operatorName);
 	}
 
+	@Override
+	public boolean checkIfBusOperatotExists(String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
 }
 	

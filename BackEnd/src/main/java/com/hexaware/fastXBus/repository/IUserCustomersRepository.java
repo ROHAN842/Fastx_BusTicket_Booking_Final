@@ -15,4 +15,7 @@ public interface IUserCustomersRepository extends JpaRepository<UserCustomers,Lo
 	UserCustomers findByBookingsBookingId(Long bookingId);
 	@Query("SELECT u.role FROM UserCustomers u WHERE u.firstName = :firstName")
     public String getRoleByFirstName(@Param("firstName") String firstName);
+	Optional<UserCustomers> findByEmail(String email);
+	public boolean existsByEmail(String email);
 }
+ 
