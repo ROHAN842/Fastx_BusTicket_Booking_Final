@@ -86,4 +86,19 @@ export class ViewBookingComponent implements OnInit {
   goBack() {
     this.router.navigate(['/userUI']); // Replace '/' with the route you want to navigate back to
   }
+
+  // Navigate to Edit Profile page
+  onUpdateUser() {
+    this.router.navigate(['/user-update']);
+  }
+
+  // Navigate to Available Buses page
+  getallBuses() {
+    this.router.navigate(['/user-allbus']);
+  }
+
+  // Navigate to All Bookings page
+  seebookings() {
+    this.router.navigate(['/user-boo']);
+  }
 }

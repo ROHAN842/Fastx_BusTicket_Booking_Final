@@ -9,10 +9,9 @@ import { BookingService } from 'src/app/Service/booking/booking.service';
   selector: 'app-select-seat',
   templateUrl: './select-seat.component.html',
   styleUrls: ['./select-seat.component.css'],
-  providers: [DatePipe]
+  providers: [DatePipe],
 })
 export class SelectSeatComponent {
-
   bookedSeats: string[] = [];
   selectedSeatCount: number = 0;
   selectedSeatsList: Set<string> = new Set();
@@ -30,15 +29,18 @@ export class SelectSeatComponent {
     private route: ActivatedRoute,
     private book: BookingService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.busId = params["busId"];
-      this.bookingDate = params["date"];
-      this.userId = params["userId"];
+      this.busId = params['busId'];
+      this.bookingDate = params['date'];
+      this.userId = params['userId'];
 
-      this.bookingDate = this.datepipe.transform(this.bookingDate, 'yyyy-MM-dd');
+      this.bookingDate = this.datepipe.transform(
+        this.bookingDate,
+        'yyyy-MM-dd'
+      );
 
       this.userService.getBusById(this.busId).subscribe((response) => {
         this.selectedBus = response;
@@ -46,9 +48,11 @@ export class SelectSeatComponent {
         this.seats = this.generateSeats(this.selectedBus.capacity);
       });
 
-      this.book.occupiedSeats(this.bookingDate, this.busId).subscribe((response1) => {
-        this.bookedSeats = response1;
-      });
+      this.book
+        .occupiedSeats(this.bookingDate, this.busId)
+        .subscribe((response1) => {
+          this.bookedSeats = response1;
+        });
     });
   }
 
@@ -69,8 +73,8 @@ export class SelectSeatComponent {
         date: this.bookingDate,
         busId: this.busId,
         selectedSeatCount: this.selectedSeatCount,
-        seats: JSON.stringify(Array.from(this.selectedSeatsList))
-      }
+        seats: JSON.stringify(Array.from(this.selectedSeatsList)),
+      },
     });
   }
 
@@ -96,5 +100,20 @@ export class SelectSeatComponent {
   }
   goBack() {
     this.router.navigate(['/user-ui']); // Replace '/' with the route you want to navigate back to
+  }
+
+  // Navigate to Edit Profile page
+  onUpdateUser() {
+    this.router.navigate(['/user-update']);
+  }
+
+  // Navigate to Available Buses page
+  getallBuses() {
+    this.router.navigate(['/user-allbus']);
+  }
+
+  // Navigate to All Bookings page
+  seebookings() {
+    this.router.navigate(['/user-boo']);
   }
 }

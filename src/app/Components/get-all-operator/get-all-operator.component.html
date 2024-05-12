@@ -49,6 +49,10 @@
             font-weight: bold;
             /* Make table data bold */
         }
+        
+        .main {
+            background-color: rgba(37, 97, 0, 0.34);
+        }
     </style>
 
 </head>
@@ -62,35 +66,27 @@
 
     <!-- Your content here -->
     <div class="main">
-        <div class="container" style="background-color: rgba(255, 255, 255, 0.7);">
-            <div class="container">
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">SNO.</th>
-                            <th scope="col">Operator ID</th>
-                            <th scope="col">Operator Name</th>
-                            <th scope="col">Contact Phone</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngIf="operatorList.length === 0; else operatorData">
-                            <td colspan="6" class="text-center">No operators available.</td>
-                        </tr>
-                        <ng-template #operatorData>
-                            <tr *ngFor="let operator of operatorList; index as i">
-                                <td>{{ i + 1 }}</td>
-                                <td>{{ operator.operatorId }}</td>
-                                <td>{{ operator.operatorName }}</td>
-                                <td>{{ operator.contactPhone }}</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger" (click)="deleteOperator(operator.operatorId)">Delete</button>
-                                </td>
-                            </tr>
-                        </ng-template>
-                    </tbody>
-                </table>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-md-4 mb-4" *ngFor="let operator of operatorList; let i = index">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Operator Details</h5>
+                            <p class="card-text">Operator ID: {{ operator.operatorId }}</p>
+                            <p class="card-text">Operator Name: {{ operator.operatorName }}</p>
+                            <p class="card-text">Contact Phone: {{ operator.contactPhone }}</p>
+                            <button type="button" class="btn btn-danger" (click)="deleteOperator(operator.operatorId)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" *ngIf="operatorList.length === 0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">No Operators Available</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -107,3 +103,40 @@
 </body>
 
 </html>
+
+<!-- Table code starts -->
+<!-- Your content here -->
+<!-- <div class="main">
+    <div class="container" style="background-color: rgba(255, 255, 255, 0.7);">
+        <div class="container">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">SNO.</th>
+                        <th scope="col">Operator ID</th>
+                        <th scope="col">Operator Name</th>
+                        <th scope="col">Contact Phone</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="operatorList.length === 0; else operatorData">
+                        <td colspan="6" class="text-center">No operators available.</td>
+                    </tr>
+                    <ng-template #operatorData>
+                        <tr *ngFor="let operator of operatorList; index as i">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ operator.operatorId }}</td>
+                            <td>{{ operator.operatorName }}</td>
+                            <td>{{ operator.contactPhone }}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger" (click)="deleteOperator(operator.operatorId)">Delete</button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+<!-- Table code ends -->

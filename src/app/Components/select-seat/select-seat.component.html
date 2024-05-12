@@ -7,6 +7,7 @@
     <title>Seat Selection</title>
     <style>
         /* Custom CSS */
+        /* Custom CSS */
         
         .navbar {
             position: fixed;
@@ -25,8 +26,7 @@
             padding: 10px 0;
             /* Add padding for better spacing */
         }
-        
-        .navbar h1 {
+        /* .navbar h1 {
             margin: 0;
             font-size: 24px;
         }
@@ -41,12 +41,72 @@
             color: white;
             font-size: 16px;
             cursor: pointer;
+        } */
+        /* Navbar code starts */
+        
+        .navbar-nav .nav-item {
+            display: inline-block;
+            margin-right: 30px;
         }
         
-        .body {
-            margin-top: 70px;
-            /* Adjust margin-top to accommodate the navbar */
-            text-align: center;
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+        
+        .navbar-nav .nav-item .btn-fastx {
+            cursor: pointer;
+            /* Change the cursor to a pointer */
+        }
+        
+        .navbar-nav .nav-item .btn-fastx:hover {
+            background-color: green;
+            /* Change the background color on hover */
+            transition: background-color 0.1s ease;
+            /* Add transition effect for smooth animation */
+        }
+        
+        .navbar-nav .nav-item .btn-fastx:hover,
+        .navbar-nav .nav-item .btn-fastx:focus {
+            color: #fff;
+            /* Change the text color on hover or focus */
+        }
+        
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-text {
+            color: white;
+        }
+        
+        .btn-fastx {
+            color: white;
+            background-color: transparent;
+            border-color: transparent;
+        }
+        
+        .navbar-toggler {
+            background-color: #35156b;
+        }
+        /* Navbar code ends */
+        
+        .ml-auto {
+            margin-left: auto !important;
+        }
+        
+        body {
+            background-image: url('../../assets/BusImage4.jpeg');
+            /* background-size: 100% 100%; */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            /* padding-top: 20px; Adjust the top padding to accommodate the navbar */
         }
         
         #seat-container {
@@ -137,6 +197,11 @@
                 /* Adjust width of seat container */
             }
         }
+        
+        #navbuttonmove {
+            margin-right: -2000px;
+            margin-left: 560px;
+        }
     </style>
 </head>
 
@@ -144,6 +209,26 @@
     <nav class="navbar navbar-dark">
         <h1 class="navbar-brand">🚍Fastx🚍</h1>
         <!-- <button type="button" class="navbar-back-button" (click)="goBack()">Back</button> -->
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <div id="navbuttonmove">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="onUpdateUser()">Edit Profile</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="getallBuses()">Available Buses</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="seebookings()">All Bookings</button>
+                    </li>
+                </div>
+                <!-- <li class="nav-item">
+                    <button type="button" class="btn btn-danger btn-signout" (click)="logout()">{{ loggedInUsername }}, Logout</button>
+                </li> -->
+            </ul>
+        </div>
+
     </nav>
 
     <div class="body">

@@ -8,17 +8,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
     <style>
         /* Navbar */
+        /* Navbar */
         
         .navbar {
             background-color: #35156b;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            /* Change to the desired color */
+            color: white;
         }
-        
-        .navbar h1 {
+        /* .navbar h1 {
             margin: 0;
         }
         
@@ -33,7 +30,7 @@
         
         .navbar .back-button:hover {
             background-color: #777;
-        }
+        } */
         /* Ticket Container */
         
         .ticketContainer {
@@ -104,6 +101,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             height: 100vh;
             margin: 0;
             padding: 0;
@@ -129,16 +127,78 @@
         td {
             color: red;
         }
+        
+        .navbar-nav .nav-item {
+            display: inline-block;
+            margin-right: 30px;
+        }
+        
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+        
+        .navbar-nav .nav-item .btn-fastx {
+            cursor: pointer;
+            /* Change the cursor to a pointer */
+        }
+        
+        .navbar-nav .nav-item .btn-fastx:hover {
+            background-color: green;
+            /* Change the background color on hover */
+            transition: background-color 0.1s ease;
+            /* Add transition effect for smooth animation */
+        }
+        
+        .navbar-nav .nav-item .btn-fastx:hover,
+        .navbar-nav .nav-item .btn-fastx:focus {
+            color: #fff;
+            /* Change the text color on hover or focus */
+        }
+        
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-text {
+            color: white;
+        }
+        
+        .btn-fastx {
+            color: white;
+            background-color: transparent;
+            border-color: transparent;
+        }
+        
+        .navbar-toggler {
+            background-color: #35156b;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <!-- <button class="back-button" (click)="goBack()">Back</button> -->
-        <h1 id="tag">🚍Fastx🚍</h1>
-        <div></div>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <h1 class="navbar-brand">🚍Fastx🚍</h1>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="onUpdateUser()">Edit Profile</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="getallBuses()">Available Buses</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="seebookings()">All Bookings</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
 
     <!-- Ticket Details -->
     <div class="ticketContainer">

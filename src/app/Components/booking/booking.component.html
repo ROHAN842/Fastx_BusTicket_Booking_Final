@@ -31,18 +31,37 @@
             margin: 0 auto;
             /* Center the form horizontally */
         }
-        
-        .navbar {
+        /* .navbar {
             background-color: #35156b;
-            /* Bootstrap dark background color */
         }
         
         .navbar-brand {
             color: #ffffff;
-            /* White color for the text */
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+        } */
+        
+        .navbar {
+            background-color: #35156b;
+            /* Change to the desired color */
+            color: white;
+        }
+        
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-text {
+            color: white;
+        }
+        
+        .btn-fastx {
+            color: white;
+            background-color: transparent;
+            border-color: transparent;
         }
         
         @media (max-width: 768px) {
@@ -64,8 +83,15 @@
         <a class="navbar-brand">🚍Fastx🚍</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item d-none d-lg-block">
-                    <button type="button" class="btn btn-dark" (click)="back()"></button>
+
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="onUpdateUser()">Edit Profile</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="getallBuses()">Available Buses</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-fastx btn-success btn-sm mr-2" (click)="seebookings()">All Bookings</button>
                 </li>
             </ul>
         </div>

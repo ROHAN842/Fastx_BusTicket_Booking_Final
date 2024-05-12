@@ -53,6 +53,10 @@
         #book {
             color: white;
         }
+        
+        .main {
+            background-color: rgba(37, 97, 0, 0.34);
+        }
     </style>
 
 </head>
@@ -65,39 +69,32 @@
     </nav>
 
     <!-- Your content here -->
-    <div class="container">
-        <div *ngIf="userBookings.length > 0; else noBookings">
-            <h2 id="book">Your Bookings</h2>
-            <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Booking ID</th>
-                        <th scope="col">Booking Date</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Total Customers</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Seat No</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let booking of userBookings">
-                        <td>{{ booking.bookingId }}</td>
-                        <td>{{ booking.bookingDate }}</td>
-                        <td>{{ booking.email }}</td>
-                        <td>{{ booking.totalcustomer }}</td>
-                        <td>{{ booking.amount }}</td>
-                        <td>{{ booking.seatNo }}</td>
-                        <td>
+    <div class="main">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-md-4 mb-4" *ngFor="let booking of userBookings">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Booking Details</h5>
+                            <p class="card-text">Booking ID: {{ booking.bookingId }}</p>
+                            <p class="card-text">Booking Date: {{ booking.bookingDate }}</p>
+                            <p class="card-text">Email: {{ booking.email }}</p>
+                            <p class="card-text">Total Customers: {{ booking.totalcustomer }}</p>
+                            <p class="card-text">Amount: {{ booking.amount }}</p>
+                            <p class="card-text">Seat No: {{ booking.seatNo }}</p>
                             <button type="button" class="btn btn-danger" (click)="deleteBooking(booking.bookingId)">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 mb-4" *ngIf="userBookings.length === 0">
+                    <div class="card">
+                        <h5 class="card-title">No Bookings Found</h5>
+                    </div>
+                </div>
+            </div>
         </div>
-        <ng-template #noBookings>
-            <p>No bookings found.</p>
-        </ng-template>
     </div>
 
     <script>
@@ -112,3 +109,41 @@
 </body>
 
 </html>
+
+<!-- Table code starts -->
+<!-- Your content here -->
+<!-- <div class="container">
+    <div *ngIf="userBookings.length > 0; else noBookings">
+        <h2 id="book">Your Bookings</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Booking ID</th>
+                    <th scope="col">Booking Date</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Total Customers</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Seat No</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let booking of userBookings">
+                    <td>{{ booking.bookingId }}</td>
+                    <td>{{ booking.bookingDate }}</td>
+                    <td>{{ booking.email }}</td>
+                    <td>{{ booking.totalcustomer }}</td>
+                    <td>{{ booking.amount }}</td>
+                    <td>{{ booking.seatNo }}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteBooking(booking.bookingId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #noBookings>
+        <p>No bookings found.</p>
+    </ng-template>
+</div> -->
+<!-- Table code ends -->

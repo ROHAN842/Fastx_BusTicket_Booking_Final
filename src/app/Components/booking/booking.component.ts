@@ -11,7 +11,7 @@ import { UserJwtClientService } from 'src/app/Service/user-jwt/user-jwt-client.s
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.css']
+  styleUrls: ['./booking.component.css'],
 })
 export class BookingComponent implements OnInit {
   errorOccurred!: string;
@@ -20,7 +20,7 @@ export class BookingComponent implements OnInit {
   selectedSeats!: string[];
   totalSeats!: number;
   busId!: number;
-  
+
   amount!: number;
   bus!: Bus;
   ticketsId!: number;
@@ -30,7 +30,7 @@ export class BookingComponent implements OnInit {
     email: '',
     amount: 0,
     totalcustomer: 0,
-    seatNo:'',
+    seatNo: '',
   };
   passengers: Customer[] = [];
   totalCustomer!: number;
@@ -50,7 +50,7 @@ export class BookingComponent implements OnInit {
       this.selectedSeats = data['seats'] ? JSON.parse(data['seats']) : [];
       this.busId = data['busId'];
       console.log(this.busId);
-      
+
       this.totalSeats = data['selectedSeatCount'];
       this.busService.getBusById(this.busId).subscribe((response) => {
         this.bus = response;
@@ -59,11 +59,6 @@ export class BookingComponent implements OnInit {
       });
     });
   }
-
- 
-
-
-
 
   bookTicket() {
     this.ticket.bookingDate = this.bookingDate;
@@ -85,33 +80,56 @@ export class BookingComponent implements OnInit {
     console.log('Retrieved User ID:', storedId);
     console.log('Retrieved Token:', token);
 
-    this.bookingService.createBooking(this.ticket, this.busId, +storedId).subscribe(
-      (response) => {
-        this.ticketsId = response.bookingId;
-        
-        // Handle success of booking creation
-        this.userJwtClientService.sendEmailOnBooking(this.ticketsId).subscribe(
-          (emailResponse) => {
-            console.log('Email sent:', emailResponse);
-            // Handle success of email sending if needed
-          },
-          (emailError) => {
-            console.error('Error sending email:', emailError);
-            // Handle error in sending email if needed
-          }
-        );
+    this.bookingService
+      .createBooking(this.ticket, this.busId, +storedId)
+      .subscribe(
+        (response) => {
+          this.ticketsId = response.bookingId;
 
-        // After successful booking and possibly email sending, navigate to success page
-        this.router.navigate(['view-booking', this.ticketsId, this.busId, { amount: this.amount }]);
-      },
-      (error) => {
-        console.error('Error creating booking:', error);
-        // Handle error in booking creation
-      }
-    );
+          // Handle success of booking creation
+          this.userJwtClientService
+            .sendEmailOnBooking(this.ticketsId)
+            .subscribe(
+              (emailResponse) => {
+                console.log('Email sent:', emailResponse);
+                // Handle success of email sending if needed
+              },
+              (emailError) => {
+                console.error('Error sending email:', emailError);
+                // Handle error in sending email if needed
+              }
+            );
+
+          // After successful booking and possibly email sending, navigate to success page
+          this.router.navigate([
+            'view-booking',
+            this.ticketsId,
+            this.busId,
+            { amount: this.amount },
+          ]);
+        },
+        (error) => {
+          console.error('Error creating booking:', error);
+          // Handle error in booking creation
+        }
+      );
   }
   back() {
     this.router.navigate(['/book-bus']); // Replace '/' with the route you want to navigate back to
   }
-  
+
+  // Navigate to Edit Profile page
+  onUpdateUser() {
+    this.router.navigate(['/user-update']);
+  }
+
+  // Navigate to Available Buses page
+  getallBuses() {
+    this.router.navigate(['/user-allbus']);
+  }
+
+  // Navigate to All Bookings page
+  seebookings() {
+    this.router.navigate(['/user-boo']);
+  }
 }
